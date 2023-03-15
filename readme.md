@@ -54,15 +54,16 @@
 						  <!-- Right Side Of Navbar -->
                    
                         <!-- Authentication Links -->
-                        
+                        @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login ') }}</a>
                             </li>
-                            <li><a href="#">   English    </a></li>
+                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register ') }}</a>
                                 </li>
-                            <li><a href="#">   English    </a></li>
+                            @endif
+                        @else
                             <li class="nav-item ">
                                 <a  class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -70,12 +71,7 @@
 
                                 
                             </li>
-                        <li><a href="#">   English    </a></li>
-                    	
-					</ul>
-				</div>
-			</div>
-			<!-- /TOP HEADER -->
+                        @endguest
 
 			<!-- MAIN HEADER -->
 			<div id="header">
